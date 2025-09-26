@@ -7,6 +7,7 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 - Added `index.css`
 - Added `form` field to index.html
 - Added `input` field to `form` ready for input handeling
+- Updated `readme.md` changed `project structure` for better readability
 
 ---
 
@@ -24,8 +25,11 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 ---
 
 ## Project Structure
-`index.html` - currently used for console
-`main.js` - main script for the tool
+- `index.html` - Currently used for console
+
+- `index.css` - Holds styling for `index.html`
+
+- `main.js` - Main script for the tool
 
 ---
 ## How It Works
