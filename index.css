@@ -1,3 +1,23 @@
-h1{
-    color: black;
+.heading{
+    font-weight: 900;
+    text-decoration: underline;
+}
+/* Preped classes ready for styling */
+.primary{
+    font-family: 'Inria Serif', serif;
+}
+.secondary{
+    font-family: 'Inria Serif', serif;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,9 +5,16 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 ## Updates
 
 - Added `index.css`
-- Added `form` field to index.html
-- Added `input` field to `form` ready for input handeling
-- Updated `readme.md` changed `project structure` for better readability
+- Updated `index.html` - `form` field 
+- Updated `index.html` - `input` field to `form` ready for input handeling
+- Updated `readme.md` - changed `project structure` for better readability
+- Updated `index.html` - `link` tags to `head` for fonts sourced at https://fonts.googleapis.com
+- Updated `index.html` - `footer` tag ready for a flushed out footer 
+- Updated `index.html`, `index.css` - classes to text ready for styling 
+- Updated `index.css` - added constructor classes for styling using flexbox
+	- Class `flex-container`
+	- Class `flex-container-column`
+
 
 ---
 
