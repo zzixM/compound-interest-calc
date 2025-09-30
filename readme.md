@@ -1,5 +1,5 @@
 # Compound Interest Calculator 
-![Version](https://img.shields.io/badge/version-1.0.1-blue)
+![Version](https://img.shields.io/badge/version-1.0.2-blue)
 A simple **Compound Interest Calculator** built with HTML and JavaScript. This project calculates the future value of an investment based on principal, interest rate, compounding frequency, and time. It’s a simple tool I made while I’m learning JavaScript.   
 ---
 ## Updates
@@ -11,9 +11,14 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 - Updated `index.html` - `link` tags to `head` for fonts sourced at https://fonts.googleapis.com
 - Updated `index.html` - `footer` tag ready for a flushed out footer 
 - Updated `index.html`, `index.css` - classes to text ready for styling 
-- Updated `index.css` - added constructor classes for styling using flexbox
+- Updated `index.css` - added constructor classes for styling using flexbox:
 	- Class `flex-container`
 	- Class `flex-container-column`
+- Updated `index.css` - added variables holding colour scheme
+- Updated `index.css` - added style to multiple css classes:
+	- Class `heading` - added font
+	- Class `form-text`, `btn-primary` - styled text for input form
+	- ID `#interest-form` - styled the input form 
 
 
 ---
