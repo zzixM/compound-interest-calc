@@ -27,10 +27,10 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 
 - Computes compound interest using a **custom `powerOf` function** (no `Math.pow`).  
 - Supports configurable:
-  - Principal amount  
-  - Annual interest rate  
-  - Compounding frequency per year  
-  - Investment duration (years)  
+	- Principal amount  
+    - Annual interest rate  
+    - Compounding frequency per year  
+    - Investment duration (years)  
 - Displays both **raw interest** and **rounded value**.  
 - Fully client-side — no backend required.  
 
