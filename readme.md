@@ -1,24 +1,16 @@
 # Compound Interest Calculator 
-![Version](https://img.shields.io/badge/version-1.0.2-blue)
+![Version](https://img.shields.io/badge/version-1.0.3-blue)
 A simple **Compound Interest Calculator** built with HTML and JavaScript. This project calculates the future value of an investment based on principal, interest rate, compounding frequency, and time. It’s a simple tool I made while I’m learning JavaScript.   
 ---
 ## Updates
 
-- Added `index.css`
-- Updated `index.html` - `form` field 
-- Updated `index.html` - `input` field to `form` ready for input handeling
-- Updated `readme.md` - changed `project structure` for better readability
-- Updated `index.html` - `link` tags to `head` for fonts sourced at https://fonts.googleapis.com
-- Updated `index.html` - `footer` tag ready for a flushed out footer 
-- Updated `index.html`, `index.css` - classes to text ready for styling 
-- Updated `index.css` - added constructor classes for styling using flexbox:
-	- Class `flex-container`
-	- Class `flex-container-column`
-- Updated `index.css` - added variables holding colour scheme
-- Updated `index.css` - added style to multiple css classes:
-	- Class `heading` - added font
-	- Class `form-text`, `btn-primary` - styled text for input form
-	- ID `#interest-form` - styled the input form 
+- Updated `index.html` - `form` field changed to `div`
+- Updated `index.html` - `btn-submit` id changed from `type="submit"`
+- Updated `index.html` - added event listeners
+	- `btn-submit` - `runSubmit`
+	- `btn-reset` - `runReset` curently returns string `"Form reset"`
+- Updated `main.js` - all input elements values are now stored in
+- Updated `main.js`, `index.hrml` - all inputs now calculate output and are dispalyed
 
 
 ---
@@ -37,7 +29,7 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 ---
 
 ## Project Structure
-- `index.html` - Currently used for console
+- `index.html` - Handles input and display (on screen and in console)
 
 - `index.css` - Holds styling for `index.html`
 
