@@ -12,10 +12,14 @@ body{
     margin: 0;
     padding: 2rem;
 }
+input{
+    border: var(--muted) 2px solid;
+}
 .heading{
     font-family: 'Inria Serif', serif;
     font-weight: 900;
     text-decoration: underline;
+    color: var(--text);
 }
 /* Preped classes ready for styling */
 .flex-container{
@@ -30,7 +34,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.form-text{
+.main-text{
     font-family: 'PT Serif', serif;
     color: var(--text);
     border: none;
@@ -54,4 +58,17 @@ body{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     gap: 1rem;
     width: 300px;
+}
+@media(width <= 500px){
+    #interest-form{
+        width: 100%;
+        padding: 1rem;
+    }
+    #resultCard{
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .main-text{
+        font-size: 0.875rem;
+    }
 }

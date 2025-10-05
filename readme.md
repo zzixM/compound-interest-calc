@@ -11,6 +11,7 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 	- `btn-reset` - `runReset` curently returns string `"Form reset"`
 - Updated `main.js` - all input elements values are now stored in
 - Updated `main.js`, `index.hrml` - all inputs now calculate output and are dispalyed
+- Updated `index.css` - added media querry for smaller screen bellow `500px`
 
 
 ---

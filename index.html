@@ -14,7 +14,7 @@
     <div class="flex-container">
         <div class="flex-container-column" id="mainCard">
             <h1 class="heading">Interest Calculator</h1>
-            <div id="interest-form" class="form-text flex-container-column">
+            <div class="main-text flex-container-column" id="interest-form">
                 <label for="principal">Principal Amount (Initial Investment):</label>
                 <input type="number" id="principal" required>
 
@@ -24,16 +24,16 @@
                 <label for="frequency">Frequency (per year interest is applied)</label>
                 <input type="number" id="frequency" required>
 
-                <label for="time">Time (years):</label>
+                <label for="year">Time (years):</label>
                 <input type="number" id="year" required>
 
                 <button class="btn-primary" id="btn-submit" onclick="runSubmit()">Calculate Interest</button>
                 <button class="btn-primary" id="btn-reset" onclick="runReset()">Reset</button>
-
             </div>
             <div class="flex-container" id="resultCard">
-                <p id="result"></p>
-                <!-- Result will be displayed here -->
+                <p class="main-text" id="result">
+                    <!-- Result will be displayed here -->
+                </p>
             </div>
         </div>
     </div>
