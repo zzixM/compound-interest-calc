@@ -44,3 +44,29 @@ function calc(principalValue, interestRate, frequency, years) {
     // todo: add output to return how much the intrest earned is (principle subtracted)
     console.log("Raw interest = ", total, "rounded value", Math.round(total)); // print result and the rounded value
 }
+
+function validateInput(inputValueList) {
+    let validated = false;
+    let validationList = [];
+    let validattionMsg = [];
+    for (let i = 0; i < inputValueList.length; i++) {
+        if (typeof inputValueList[i] === "number" && inputValueList[i] <= 0 || isNaN(inputValueList[i])){
+                validated = false;
+        }else if (inputValueList[i] === null || inputValueList === ""){
+                validated = false;
+        }else if (typeof inputValueList[i] === "string" && inputValueList[i].trim() === ""){
+                validated = false;
+        }else if (typeof inputValueList[i] === "undefined"){
+                validated = false;
+        }else {
+                validated = true;
+        }
+        validationList.push(validated);
+        validattionMsg.push("Input "+ i+ " is "+ validated+ " Reason "+ typeof inputValueList[i]);
+    }
+    console.log(validationList);
+    console.log(validattionMsg);
+    return validated;
+}
+let testValue = [undefined, null, "", " ", "1", 1, -1, 0, NaN];
+console.log(validateInput(testValue));
