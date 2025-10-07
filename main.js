@@ -45,6 +45,10 @@ function calc(principalValue, interestRate, frequency, years) {
     console.log("Raw interest = ", total, "rounded value", Math.round(total)); // print result and the rounded value
 }
 
+// Function to validate input values
+// Returns true if all inputs are valid, false if any input is invalid
+// Invalid inputs: negative numbers, zero, null, empty strings, strings with only spaces, undefined, NaN
+// Valid inputs: positive numbers, non-empty strings
 function validateInput(inputValueList) {
     let validated = false;
     let validationList = [];
@@ -63,10 +67,12 @@ function validateInput(inputValueList) {
         }
         validationList.push(validated);
         validattionMsg.push("Input "+ i+ " is "+ validated+ " Reason "+ typeof inputValueList[i]);
-    }
+    }   // todo: improve validation messages
+        // todo: return which input is invalid
     console.log(validationList);
     console.log(validattionMsg);
     return validated;
 }
+// todo: remove test code below
 let testValue = [undefined, null, "", " ", "1", 1, -1, 0, NaN];
 console.log(validateInput(testValue));
