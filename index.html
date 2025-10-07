@@ -16,21 +16,21 @@
             <h1 class="heading">Interest Calculator</h1>
             <div class="main-text flex-container-column" id="interest-form">
                 <label for="principal">Principal Amount (Initial Investment):</label>
-                <input type="number" id="principal" required>
+                <input type="number" id="principal">
 
                 <label for="rate">Annual Interest Rate (%):</label>
-                <input type="number" id="rate" step="0.01" required>
+                <input type="number" id="rate" step="0.01">
 
                 <label for="frequency">Frequency (per year interest is applied)</label>
-                <input type="number" id="frequency" required>
+                <input type="number" id="frequency">
 
                 <label for="year">Time (years):</label>
-                <input type="number" id="year" required>
+                <input type="number" id="year">
 
                 <button class="btn-primary" id="btn-submit" onclick="runSubmit()">Calculate Interest</button>
                 <button class="btn-primary" id="btn-reset" onclick="runReset()">Reset</button>
             </div>
-            <div class="flex-container" id="resultCard">
+            <div class="flex-container hide" id="resultCard">
                 <p class="main-text" id="result">
                     <!-- Result will be displayed here -->
                 </p>

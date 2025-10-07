@@ -12,6 +12,11 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 - Updated `main.js` - all input elements values are now stored in
 - Updated `main.js`, `index.hrml` - all inputs now calculate output and are dispalyed
 - Updated `index.css` - added media querry for smaller screen bellow `500px`
+- Updated `index.css` - added hide class for displaying `result`
+- Updated `index.xss` - styling for `resultCard`
+- Updated `main.js` - added code to remove `hide` class in `runSubmit` function
+- Updated `main.js` - added code to add `hide` class in `runReset` function
+- Updated `main.js` - added reset fuctionality to `runReset` function
 
 
 ---

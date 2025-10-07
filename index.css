@@ -51,6 +51,9 @@ input{
     cursor: pointer;
     font-size: 1rem;
 }
+.hide{
+    display: none;
+}
 #interest-form{
     background-color: var(--surface);
     padding: 2rem;
@@ -59,13 +62,23 @@ input{
     gap: 1rem;
     width: 300px;
 }
+#resultCard{
+    background-color: var(--surface);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0 0 0;
+    border: 1rem solid var(--accent-2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    width: 250px;
+}
 @media(width <= 500px){
     #interest-form{
         width: 100%;
         padding: 1rem;
     }
     #resultCard{
-        width: 100%;
+        width: 75%;
         margin-top: 1rem;
     }
     .main-text{

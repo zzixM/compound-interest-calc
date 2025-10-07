@@ -29,7 +29,9 @@ function runSubmit() {
 
 // Run the reset event listener
 function runReset() {
-    return "Form reset";
+    doc.getElementById("resultCard").classList.add("hide"); // hide the result card by adding the hide class
+    doc.getElementById("interest-form").reset(); // reset the form
+    console.log("Form reset");
 }
 
 // Main function for calculations to 2 decimal places
@@ -37,8 +39,8 @@ function calc(principalValue, interestRate, frequency, years) {
     let initial = 1 + (interestRate / frequency); // start of calculation 
     let exponent = frequency * years; // exponent value (the ammount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
+    doc.getElementById("resultCard").classList.remove("hide"); // show the result card by removing the hide class
     doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value "+ Math.round(total); // print result to the page
     // todo: add output to return how much the intrest earned is (principle subtracted)
     console.log("Raw interest = ", total, "rounded value", Math.round(total)); // print result and the rounded value
 }
-
