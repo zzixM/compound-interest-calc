@@ -22,7 +22,7 @@ function runSubmit() {
     let frequency = parseInt(doc.getElementById("frequency").value);
     let years = parseInt(doc.getElementById("year").value);
     // log values to console
-    console.log("Principal = ", principalValue, "Rate = ", interestRate, "Frequency = ", frequency ,"Years = ", years);
+    console.log("Principal =", principalValue, "Rate =", interestRate, "Frequency =", frequency ,"Years =", years);
     // call the calculation function
     return calc(principalValue, interestRate, frequency, years);
 }
@@ -39,10 +39,10 @@ function calc(principalValue, interestRate, frequency, years) {
     let initial = 1 + (interestRate / frequency); // start of calculation 
     let exponent = frequency * years; // exponent value (the ammount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
+    let accruedIntrest = total - principalValue; // interest earned subtracted from principal
     doc.getElementById("resultCard").classList.remove("hide"); // show the result card by removing the hide class
-    doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value "+ Math.round(total); // print result to the page
-    // todo: add output to return how much the intrest earned is (principle subtracted)
-    console.log("Raw interest = ", total, "rounded value", Math.round(total)); // print result and the rounded value
+    doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value = "+ Math.round(total)+ " intrest accrued ="+ accruedIntrest; // print result to the page
+    console.log("Raw interest =", total, "rounded value", Math.round(total), "intrest accrued =", accruedIntrest); // print result and the rounded value
 }
 
 // Function to validate input values
