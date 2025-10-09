@@ -96,7 +96,3 @@ function calc(principalValue, interestRate, frequency, years) {
     doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value = "+ Math.round(total)+ " intrest accrued ="+ accruedIntrest; // print result to the page
     console.log("Raw interest =", total, "rounded value", Math.round(total), "intrest accrued =", accruedIntrest); // print result and the rounded value
 }
-
-// todo: remove test code below
-//let testValue = [undefined, null, "", " ", "1", 1, -1, 0, NaN];
-//console.log(validateInput(testValue));
