@@ -14,12 +14,11 @@ let powerOf = (num, pow) => {
     return result; // return result
 } 
 
-
-// Run the sumbit event listener
+// Run the submit event listener
 function runSubmit() {
     // get values from the form
     let principalValue = parseFloat(doc.getElementById("principal").value);
-    let interestRate = parseFloat(doc.getElementById("rate").value) / 100;
+    let interestRate = parseFloat(doc.getElementById("rate").value);
     let frequency = parseInt(doc.getElementById("frequency").value);
     let years = parseInt(doc.getElementById("year").value);
     // list of inputs for validation
@@ -30,6 +29,7 @@ function runSubmit() {
     if (valid === false) {
         return; // if inputs are invalid, exit the function
     } else {
+        interestRate = interestRate / 100; // convert percentage to decimal
         // call the calculation function
         calc(principalValue, interestRate, frequency, years);
     }
@@ -43,9 +43,9 @@ function validateInput(inputValueList) {
     let validated = false;
     let validationList = [];
     for (let i = 0; i < inputValueList.length; i++) {
-        if (typeof inputValueList[i] === "number" && inputValueList[i] <= 0 || isNaN(inputValueList[i])){
+        if (typeof inputValueList[i] === "number" && inputValueList[i] <= 0 ){
                 validated = false;
-        }else if (inputValueList[i] === null || inputValueList === ""){
+        }else if (inputValueList[i] === null || Number.isFinite(inputValueList[i]) === false){
                 validated = false;
         }else if (typeof inputValueList[i] === "string" && inputValueList[i].trim() === ""){
                 validated = false;
@@ -80,6 +80,7 @@ function runReset() {
     doc.getElementById("resultCard").classList.add("hide");
         doc.getElementById("resultCard").classList.remove("success");
         doc.getElementById("resultCard").classList.remove("fail");
+        doc.getElementById("result").textContent = "";
     let inputs = doc.querySelectorAll("#interest-form input"); // reset the form
     inputs.forEach(i => { 
         i.value = "";
@@ -89,10 +90,10 @@ function runReset() {
 // Main function for calculations to 2 decimal places
 function calc(principalValue, interestRate, frequency, years) {
     let initial = 1 + (interestRate / frequency); // start of calculation 
-    let exponent = frequency * years; // exponent value (the ammount of times interest is applied)
+    let exponent = frequency * years; // exponent value (the amount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
-    let accruedIntrest = total - principalValue; // interest earned subtracted from principal
+    let accruedInterest = total - principalValue; // interest earned subtracted from principal
     doc.getElementById("resultCard").classList.remove("hide"); // show the result card by removing the hide class
-    doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value = "+ Math.round(total)+ " intrest accrued ="+ accruedIntrest; // print result to the page
-    console.log("Raw interest =", total, "rounded value", Math.round(total), "intrest accrued =", accruedIntrest); // print result and the rounded value
+    doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value (To 4 Decimal places) "+ total.toFixed(4)+ " interest accrued ="+ accruedInterest; // print result to the page
+    console.log("Raw interest =", total, "rounded value (To 4 Decimal places)", total.toFixed(4), "interest accrued =", accruedInterest); // print result and the rounded value
 }
