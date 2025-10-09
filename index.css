@@ -4,7 +4,8 @@
     --text: #0B1220;         /* main text */
     --muted: #6B7280;        /* helper text */
     --accent: #2EA3F2;       /* primary button / highlights */
-    --accent-2: #0B7A58;     /* secondary accent */
+    --success: #0B7A58;     /* secondary accent */
+    --fail: #D32F2F;        /* fail */
 }
 body{
     background-color: var(--bg);
@@ -54,6 +55,7 @@ input{
 .hide{
     display: none;
 }
+
 #interest-form{
     background-color: var(--surface);
     padding: 2rem;
@@ -67,10 +69,15 @@ input{
     padding: 2rem;
     border-radius: 0.5rem;
     margin: 1rem 0 0 0;
-    border: 1rem solid var(--accent-2);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     gap: 1rem;
     width: 250px;
+}
+.success{
+    border: 1rem solid var(--success);
+}
+.fail{
+    border: 1rem solid var(--fail);
 }
 @media(width <= 500px){
     #interest-form{

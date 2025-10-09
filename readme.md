@@ -19,6 +19,7 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 - Updated `main.js` - added reset fuctionality to `runReset` function
 - Updated `main.js` - added `validateInput` for quality assurence (Still being tested)
 - Updated `main.js` - added `accruedIntrest` for better value brakedown
+- Updated `main.js` - removed unnecessary `return` statment from `runSubmit`
 
 
 ---
