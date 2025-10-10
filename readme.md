@@ -27,7 +27,7 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
     - Annual interest rate  
     - Compounding frequency per year  
     - Investment duration (years)  
-- Displays both **raw interest** and **rounded value**.  
+- Displays both **raw interest**, **rounded value** and **intrest accrued**  
 - Fully client-side — no backend required.  
 
 ---
