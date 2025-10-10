@@ -41,20 +41,31 @@ function runSubmit() {
 // Valid inputs: positive numbers, non-empty strings
 function validateInput(inputValueList) {
     let validated = false;
+    let failReason = "";
     let validationList = [];
+    let validationMessage = [];
     for (let i = 0; i < inputValueList.length; i++) {
         if (typeof inputValueList[i] === "number" && inputValueList[i] <= 0 ){
                 validated = false;
+                failReason = "Input must be greater than 0";
         }else if (inputValueList[i] === null || Number.isFinite(inputValueList[i]) === false){
                 validated = false;
+                failReason = "Input must be a valid number";
         }else if (typeof inputValueList[i] === "string" && inputValueList[i].trim() === ""){
                 validated = false;
+                failReason = "Input cannot be empty or just spaces";
         }else if (typeof inputValueList[i] === "undefined"){
                 validated = false;
+                failReason = "No input was provided";
         }else {
                 validated = true;
         }
+        // Adjust index for user-friendly message (start from 1 instead of 0)
+        if (i === 0){
+            i = 1;
+        }
         validationList.push(validated);
+        validationMessage.push("User Input "+ i+ " is "+ validated+ " "+ failReason);
     }
     // todo: return which input is invalid
     console.log(validationList);
@@ -68,7 +79,14 @@ function validateInput(inputValueList) {
         doc.getElementById("resultCard").classList.remove("success");
         doc.getElementById("resultCard").classList.add("fail");
         doc.getElementById("resultCard").classList.remove("hide");
-        doc.getElementById("result").innerHTML = "Please make sure your inputs are numbers greater than 0";
+        // doc.getElementById("result").innerHTML = "Please make sure your inputs are numbers greater than 0";
+        for (let i = 0; i < validationMessage.length; i++) {
+            if (validationMessage[i].includes("false")) {
+                doc.getElementById("result").innerHTML += validationMessage[i]+ "<br>";
+            } else {
+                doc.getElementById("result").innerHTML += "User Input "+ [i]+ " accepted" +"<br>";
+            }
+        }
         validated = false;
     }
     return validated; // return the validation result
