@@ -16,6 +16,8 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 	- `success` - for successful inputs
 	- `fail` - for failed inputs
 - Updated `main.js` - added better input error responses 
+- Updated `main.js` - reworked error handaling to display which input is correct/incorect 
+- Updated `main.js` - added hellper functions to make code more readable
 
 ---
 

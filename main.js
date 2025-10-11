@@ -14,8 +14,37 @@ let powerOf = (num, pow) => {
     return result; // return result
 } 
 
+let getInputElements = () => {
+    const interestFormInputs = doc.getElementById("interest-form").querySelectorAll("input");
+    let ids = [];
+    for (let i = 0; i < interestFormInputs.length; i++) {
+        ids.push(interestFormInputs[i].id);
+    }
+    return ids; // return array of input ids
+}
+
+// Functions to add and remove classes
+let resetClasses = (id) => {
+    let element = doc.getElementById(id);
+    element.classList.remove("fail");
+    element.classList.remove("success");
+}
+let addSuccessClass = (id) => {
+    let element = doc.getElementById(id);
+    element.classList.add("success");
+}
+let addFailClass = (id) => {
+    let element = doc.getElementById(id);
+    element.classList.add("fail");
+}
+let toggleHideClass = (id) => {
+    let element = doc.getElementById(id);
+    element.classList.toggle("hide");
+}
+
 // Run the submit event listener
 function runSubmit() {
+    getInputElements();
     // get values from the form
     let principalValue = parseFloat(doc.getElementById("principal").value);
     let interestRate = parseFloat(doc.getElementById("rate").value);
@@ -61,9 +90,9 @@ function validateInput(inputValueList) {
                 validated = true;
         }
         // Adjust index for user-friendly message (start from 1 instead of 0)
-        if (i === 0){
-            i = 1;
-        }
+        //if (i === 0){
+            //i = 1;
+        //}
         validationList.push(validated);
         validationMessage.push("User Input "+ i+ " is "+ validated+ " "+ failReason);
     }
@@ -71,19 +100,28 @@ function validateInput(inputValueList) {
     console.log(validationList);
     if(!validationList.includes(false)){
         // if all inputs are valid, show success message
+
         doc.getElementById("resultCard").classList.remove("fail");
         doc.getElementById("resultCard").classList.add("success");
         validated = true;
     } else {
+        // get input element ids for error reporting
+        let elementIds = getInputElements();
+        doc.getElementById("result").textContent = ""; // clear previous messages
         // if any input is invalid, show error message
         doc.getElementById("resultCard").classList.remove("success");
         doc.getElementById("resultCard").classList.add("fail");
         doc.getElementById("resultCard").classList.remove("hide");
-        // doc.getElementById("result").innerHTML = "Please make sure your inputs are numbers greater than 0";
         for (let i = 0; i < validationMessage.length; i++) {
+            // get the corresponding input element
+            let inputElement = document.getElementById(elementIds[i]);
             if (validationMessage[i].includes("false")) {
+                // if input is invalid, add fail class
+                inputElement.classList.add("fail");
                 doc.getElementById("result").innerHTML += validationMessage[i]+ "<br>";
             } else {
+                // if input is valid, add success class
+                inputElement.classList.add("success");
                 doc.getElementById("result").innerHTML += "User Input "+ [i]+ " accepted" +"<br>";
             }
         }
@@ -96,9 +134,9 @@ function validateInput(inputValueList) {
 function runReset() {
     // hide the result card by adding the hide class
     doc.getElementById("resultCard").classList.add("hide");
-        doc.getElementById("resultCard").classList.remove("success");
-        doc.getElementById("resultCard").classList.remove("fail");
-        doc.getElementById("result").textContent = "";
+    doc.getElementById("resultCard").classList.remove("success");
+    doc.getElementById("resultCard").classList.remove("fail");
+    doc.getElementById("result").textContent = "";
     let inputs = doc.querySelectorAll("#interest-form input"); // reset the form
     inputs.forEach(i => { 
         i.value = "";
