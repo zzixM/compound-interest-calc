@@ -24,7 +24,7 @@ let getInputElements = () => {
 }
 
 // Functions to add and remove classes
-let resetClasses = (id) => {
+let restStatus = (id) => {
     let element = doc.getElementById(id);
     element.classList.remove("fail");
     element.classList.remove("success");
@@ -100,18 +100,17 @@ function validateInput(inputValueList) {
     console.log(validationList);
     if(!validationList.includes(false)){
         // if all inputs are valid, show success message
-
-        doc.getElementById("resultCard").classList.remove("fail");
-        doc.getElementById("resultCard").classList.add("success");
+        restStatus("resultCard");
+        addSuccessClass("resultCard");
         validated = true;
     } else {
         // get input element ids for error reporting
         let elementIds = getInputElements();
         doc.getElementById("result").textContent = ""; // clear previous messages
         // if any input is invalid, show error message
-        doc.getElementById("resultCard").classList.remove("success");
-        doc.getElementById("resultCard").classList.add("fail");
-        doc.getElementById("resultCard").classList.remove("hide");
+        restStatus("resultCard");
+        addFailClass("resultCard");
+        toggleHideClass("resultCard");
         for (let i = 0; i < validationMessage.length; i++) {
             // get the corresponding input element
             let inputElement = document.getElementById(elementIds[i]);
@@ -132,15 +131,22 @@ function validateInput(inputValueList) {
 
 // Run the reset event listener
 function runReset() {
+    if (doc.getElementById("resultCard").classList.contains("hide")){
+        return; // if result is already empty, exit the function
+    }
+    // if result is already empty, exit the function
     // hide the result card by adding the hide class
-    doc.getElementById("resultCard").classList.add("hide");
-    doc.getElementById("resultCard").classList.remove("success");
-    doc.getElementById("resultCard").classList.remove("fail");
+    toggleHideClass("resultCard");
+    restStatus("resultCard");
     doc.getElementById("result").textContent = "";
-    let inputs = doc.querySelectorAll("#interest-form input"); // reset the form
+        let inputs = doc.querySelectorAll("#interest-form input"); // reset the form
     inputs.forEach(i => { 
         i.value = "";
     });
+    let elementIds = getInputElements()
+    for (let i = 0; i < elementIds.length; i++) {
+        restStatus(elementIds[i]); // reset input status classes
+    }
 }
 
 // Main function for calculations to 2 decimal places
@@ -149,7 +155,7 @@ function calc(principalValue, interestRate, frequency, years) {
     let exponent = frequency * years; // exponent value (the amount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
     let accruedInterest = total - principalValue; // interest earned subtracted from principal
-    doc.getElementById("resultCard").classList.remove("hide"); // show the result card by removing the hide class
+    toggleHideClass("resultCard");
     doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value (To 4 Decimal places) "+ total.toFixed(4)+ " interest accrued ="+ accruedInterest; // print result to the page
     console.log("Raw interest =", total, "rounded value (To 4 Decimal places)", total.toFixed(4), "interest accrued =", accruedInterest); // print result and the rounded value
 }
