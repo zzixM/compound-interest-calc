@@ -1,23 +1,14 @@
 # Compound Interest Calculator 
-![Version](https://img.shields.io/badge/version-1.0.4-blue)
+![Version](https://img.shields.io/badge/version-1.0.5-blue)
 A simple **Compound Interest Calculator** built with HTML and JavaScript. This project calculates the future value of an investment based on principal, interest rate, compounding frequency, and time. It’s a simple tool I made while I’m learning JavaScript.   
 ---
 ## Updates
 
-- Updated `index.css` - added hide class for displaying `result`
-- Updated `index.xss` - styling for `resultCard`
-- Updated `main.js` - added code to remove `hide` class in `runSubmit` function
-- Updated `main.js` - added code to add `hide` class in `runReset` function
-- Updated `main.js` - added reset fuctionality to `runReset` function
-- Updated `main.js` - added `validateInput` for quality assurence (Still being tested)
-- Updated `main.js` - added `accruedIntrest` for better value brakedown
-- Updated `main.js` - removed unnecessary `return` statment from `runSubmit`
-- Updated `index.css` - added 2 new classes for visual fedback
-	- `success` - for successful inputs
-	- `fail` - for failed inputs
 - Updated `main.js` - added better input error responses 
 - Updated `main.js` - reworked error handaling to display which input is correct/incorect 
-- Updated `main.js` - added hellper functions to make code more readable
+- Updated `main.js` - added helper functions to make code more readable
+- Updated `main.js` - added reset functionality to `input` elements with `runReset`
+- Updated `main.js` - `btn-submit` nolonger atributses `hide` class after a succesful result after resubmited 
 
 ---
 

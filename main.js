@@ -14,6 +14,7 @@ let powerOf = (num, pow) => {
     return result; // return result
 } 
 
+// Function to get all input element ids in the form
 let getInputElements = () => {
     const interestFormInputs = doc.getElementById("interest-form").querySelectorAll("input");
     let ids = [];
@@ -155,7 +156,10 @@ function calc(principalValue, interestRate, frequency, years) {
     let exponent = frequency * years; // exponent value (the amount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
     let accruedInterest = total - principalValue; // interest earned subtracted from principal
-    toggleHideClass("resultCard");
+    
+    if (doc.getElementById("resultCard").classList.contains("hide") === true){
+        toggleHideClass("resultCard");
+    }
     doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value (To 4 Decimal places) "+ total.toFixed(4)+ " interest accrued ="+ accruedInterest; // print result to the page
     console.log("Raw interest =", total, "rounded value (To 4 Decimal places)", total.toFixed(4), "interest accrued =", accruedInterest); // print result and the rounded value
 }
