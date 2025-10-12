@@ -74,10 +74,10 @@ input{
     width: 250px;
 }
 .success{
-    border: 0.5rem solid var(--success);
+    border: 0.4rem solid var(--success);
 }
 .fail{
-    border: 0.5rem solid var(--fail);
+    border: 0.4rem solid var(--fail);
 }
 @media(width <= 500px){
     #interest-form{

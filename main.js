@@ -74,6 +74,7 @@ function validateInput(inputValueList) {
     let failReason = "";
     let validationList = [];
     let validationMessage = [];
+    let userInputNumber = 1; // to track which input is being validated (starting from 1 for user-friendliness)
     for (let i = 0; i < inputValueList.length; i++) {
         if (typeof inputValueList[i] === "number" && inputValueList[i] <= 0 ){
                 validated = false;
@@ -90,12 +91,9 @@ function validateInput(inputValueList) {
         }else {
                 validated = true;
         }
-        // Adjust index for user-friendly message (start from 1 instead of 0)
-        //if (i === 0){
-            //i = 1;
-        //}
         validationList.push(validated);
-        validationMessage.push("User Input "+ i+ " is "+ validated+ " "+ failReason);
+        validationMessage.push("User Input "+ userInputNumber+ " is "+ validated+ " "+ failReason);
+        userInputNumber++;
     }
     // todo: return which input is invalid
     console.log(validationList);
@@ -112,6 +110,7 @@ function validateInput(inputValueList) {
         restStatus("resultCard");
         addFailClass("resultCard");
         toggleHideClass("resultCard");
+        let userInputNumber = 1; // to track which input is being validated (starting from 1 for user-friendliness)
         for (let i = 0; i < validationMessage.length; i++) {
             // get the corresponding input element
             let inputElement = document.getElementById(elementIds[i]);
@@ -122,8 +121,9 @@ function validateInput(inputValueList) {
             } else {
                 // if input is valid, add success class
                 inputElement.classList.add("success");
-                doc.getElementById("result").innerHTML += "User Input "+ [i]+ " accepted" +"<br>";
+                doc.getElementById("result").innerHTML += "User Input "+ userInputNumber+ " accepted" +"<br>";
             }
+            userInputNumber++;
         }
         validated = false;
     }
