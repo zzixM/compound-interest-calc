@@ -166,3 +166,36 @@ function calc(principalValue, interestRate, frequency, years) {
     doc.getElementById("result").innerHTML = "Raw interest = "+ total+ " rounded value (To 4 Decimal places) "+ total.toFixed(4)+ " interest accrued ="+ accruedInterest; // print result to the page
     console.log("Raw interest =", total, "rounded value (To 4 Decimal places)", total.toFixed(4), "interest accrued =", accruedInterest); // print result and the rounded value
 }
+
+// formula for compound interest with periodic payments
+function calculateFutureValue({
+  presentValue,      // Initial lump-sum amount (PV)
+  periodicPayment,   // Payment made each period (PMT)
+  annualInterestRate, // Annual interest rate as a decimal (e.g., 0.05 for 5%)
+  compoundingPeriodsPerYear, // Number of compounding periods per year (n)
+  years              // Total number of years (t)
+}) {
+    const ratePerPeriod = annualInterestRate / compoundingPeriodsPerYear;
+    const totalPeriods = compoundingPeriodsPerYear * years;
+
+    const compoundFactor = Math.pow(1 + ratePerPeriod, totalPeriods);
+
+    const futureValueLumpSum = presentValue * compoundFactor;
+    const futureValuePayments = periodicPayment * ((compoundFactor - 1) / ratePerPeriod);
+
+    const totalFutureValue = futureValueLumpSum + futureValuePayments;
+
+    return totalFutureValue;
+}
+
+// Example usage:
+const inputs = {
+    presentValue: 6000,          // Starting amount
+    periodicPayment: 225,        // Payment made each month
+    annualInterestRate: 0.0625,    // 6.25% annual interest
+    compoundingPeriodsPerYear: 12, // Compounded monthly
+    years: 1                    // Duration in years
+};
+
+const futureValue = calculateFutureValue(inputs);
+console.log(`Future Value: $${futureValue.toFixed(2)}`);
