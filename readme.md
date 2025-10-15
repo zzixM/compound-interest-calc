@@ -9,7 +9,8 @@ A simple **Compound Interest Calculator** built with HTML and JavaScript. This p
 - Updated `main.js` - added helper functions to make code more readable
 - Updated `main.js` - added reset functionality to `input` elements with `runReset`
 - Updated `main.js` - `btn-submit` nolonger atributses `hide` class after a succesful result after resubmited 
-- Updated `main.js` - fixed user inputs starting from `0` when displaying in the UI 
+- Updated `main.js` - fixed user inputs starting from `0` when displaying in the UI
+- Updated `index.html` - added `p` element as instruction for user 
 
 ---
 

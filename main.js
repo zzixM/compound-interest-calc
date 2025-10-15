@@ -92,7 +92,7 @@ function validateInput(inputValueList) {
                 validated = true;
         }
         validationList.push(validated);
-        validationMessage.push("User Input "+ userInputNumber+ " is "+ validated+ " "+ failReason);
+        validationMessage.push("User Input "+ userInputNumber+ " is a "+ validated+ " "+ failReason);
         userInputNumber++;
     }
     // todo: return which input is invalid
@@ -109,7 +109,10 @@ function validateInput(inputValueList) {
         // if any input is invalid, show error message
         restStatus("resultCard");
         addFailClass("resultCard");
-        toggleHideClass("resultCard");
+        // display the result card if it's hidden
+        if (doc.getElementById("resultCard").classList.contains("hide") === true){
+            toggleHideClass("resultCard");
+        }
         let userInputNumber = 1; // to track which input is being validated (starting from 1 for user-friendliness)
         for (let i = 0; i < validationMessage.length; i++) {
             // get the corresponding input element
@@ -156,7 +159,7 @@ function calc(principalValue, interestRate, frequency, years) {
     let exponent = frequency * years; // exponent value (the amount of times interest is applied)
     let total = principalValue * powerOf(initial, exponent); // final calculation 
     let accruedInterest = total - principalValue; // interest earned subtracted from principal
-    
+    // display the result card if it's hidden
     if (doc.getElementById("resultCard").classList.contains("hide") === true){
         toggleHideClass("resultCard");
     }
