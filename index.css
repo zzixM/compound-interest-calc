@@ -73,6 +73,10 @@ input{
     gap: 1rem;
     width: 250px;
 }
+.muted{
+    color: var(--muted);
+    font-size: 0.75rem;
+}
 .success{
     border: 0.4rem solid var(--success);
 }
@@ -90,5 +94,8 @@ input{
     }
     .main-text{
         font-size: 0.875rem;
+    }
+    .muted{
+        font-size: 0.65rem;
     }
 }
